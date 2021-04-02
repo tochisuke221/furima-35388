@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_one :buyer
+- has_many :buyer
 
 ## items テーブル
 
@@ -46,7 +46,7 @@
 
 ### Association
 
-has_one :adress
+has_one :address
 belongs_to :user
 belongs_to :item
 
@@ -54,7 +54,7 @@ belongs_to :item
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
-| user          | references | null: false,foreign_kry: true |
+| buyer         | references | null: false,foreign_kry: true |
 | address_code  | string     | null: false                   |
 | prefecture_id | integer    | null: false                   |
 | city          | string     | null: false                   |
