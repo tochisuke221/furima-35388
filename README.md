@@ -16,41 +16,41 @@
 ### Association
 
 - has_many :items
-- has_one :address
+- has_one :buyer
 
 ## items テーブル
 
-| Column       | Type       | Options                      |
-| ------------ | ---------- | ---------------------------- |
-| user         | references | null:false,foreign_kry: true |
-| name         | string     | null: false                  |
-| description  | text       | null: false                  |
-| category_id  | integer    | null: false                  |
-| status_id    | integer    | null: false                  |
-| fee_id       | integer    | null: false                  |
-| ship_from_id | integer    | null: false                  |
-| term_id      | integer    | null: false                  |
-| price        | integer    | null: false                  |
+| Column        | Type       | Options                      |
+| ------------- | ---------- | ---------------------------- |
+| user          | references | null:false,foreign_kry: true |
+| name          | string     | null: false                  |
+| description   | text       | null: false                  |
+| category_id   | integer    | null: false                  |
+| status_id     | integer    | null: false                  |
+| fee_id        | integer    | null: false                  |
+| prefecture_id | integer    | null: false                  |
+| term_id       | integer    | null: false                  |
+| price         | integer    | null: false                  |
 
 ### Association
 
+- has_one :buyer
 - belongs_to :user
-- has_one :address
 
 ## buyers テーブル
 
-| Column  | Type       | Options                       |
-| ------- | ---------- | ----------------------------- |
-| user    | references | null: false,foreign_kry: true |
-| item    | references | null: false,foreign_kry: true |
-| address | references | null: false,foreign_kry: true |
+| Column | Type       | Options                       |
+| ------ | ---------- | ----------------------------- |
+| user   | references | null: false,foreign_kry: true |
+| item   | references | null: false,foreign_kry: true |
 
 ### Association
 
-belongs_to :item
+has_one :adress
 belongs_to :user
+belongs_to :item
 
-## address テーブル
+## addresses テーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
@@ -60,9 +60,8 @@ belongs_to :user
 | city          | string     | null: false                   |
 | address_line  | string     | null: false                   |
 | building_name | string     |                               |
-| phone_num     | integer    | null: false                   |
+| phone_num     | string     | null: false                   |
 
 ### Association
 
-belongs_to :item
-belongs_to :user
+belongs_to :buyer
