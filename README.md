@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_many :buyer
+- has_many :buyers
 
 ## items テーブル
 
@@ -54,7 +54,7 @@ belongs_to :item
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
-| buyer         | references | null: false,foreign_kry: true |
+| buyer         | references | null: false,foreign_key: true |
 | address_code  | string     | null: false                   |
 | prefecture_id | integer    | null: false                   |
 | city          | string     | null: false                   |
