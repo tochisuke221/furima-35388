@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column      | Type    | Options     |
-| ----------- | ------- | ----------- |
-| nickname    | string  | null: false |
-| email       | string  | null: false |
-| password    | string  | null: false |
-| c_name      | string  | null: false |
-| j_name      | string  | null: false |
-| birth_year  | integer | null: false |
-| birth_month | integer | null: false |
-| birth_day   | integer | null: false |
+| Column             | Type   | Options                 |
+| ------------------ | ------ | ----------------------- |
+| nickname           | string | null: false             |
+| email              | string | null: false,unique:true |
+| encrypted_password | string | null: false             |
+| c_last_name        | string | null: false             |
+| c_first_name       | string | null: false             |
+| j_last_name        | string | null: false             |
+| j_first_name       | string | null: false             |
+| birthday           | date   | null: false             |
 
 ### Association
 
@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column      | Type       | Options                      |
-| ----------- | ---------- | ---------------------------- |
-| user        | references | null:false,foreign_kry: true |
-| name        | string     | null: false                  |
-| description | string     | null: false                  |
-| category    | string     | null: false                  |
-| status      | string     | null: false                  |
-| fee         | string     | null: false                  |
-| ship_from   | string     | null: false                  |
-| term        | string     | null: false                  |
-| price       | integer    | null: false                  |
+| Column       | Type       | Options                      |
+| ------------ | ---------- | ---------------------------- |
+| user         | references | null:false,foreign_kry: true |
+| name         | string     | null: false                  |
+| description  | text       | null: false                  |
+| category_id  | integer    | null: false                  |
+| status_id    | integer    | null: false                  |
+| fee_id       | integer    | null: false                  |
+| ship_from_id | integer    | null: false                  |
+| term_id      | integer    | null: false                  |
+| price        | integer    | null: false                  |
 
 ### Association
 
@@ -39,15 +39,24 @@
 
 ## buyers テーブル
 
+| Column  | Type       | Options                       |
+| ------- | ---------- | ----------------------------- |
+| user    | references | null: false,foreign_kry: true |
+| item    | references | null: false,foreign_kry: true |
+| address | references | null: false,foreign_kry: true |
+
+### Association
+
+belongs_to :item
+belongs_to :user
+
+## address テーブル
+
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
 | user          | references | null: false,foreign_kry: true |
-| item          | references | null: false,foreign_kry: true |
-| credit_num    | string     | null: false                   |
-| credit_date   | string     | null: false                   |
-| csv           | string     | null: false                   |
 | address_code  | string     | null: false                   |
-| prefecture    | string     | null: false                   |
+| prefecture_id | integer    | null: false                   |
 | city          | string     | null: false                   |
 | address_line  | string     | null: false                   |
 | building_name | string     |                               |
