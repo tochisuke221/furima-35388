@@ -2,7 +2,7 @@ class Prefecture < ActiveHash::Base
 
 
 self.data = [
-  {id: 1, name:  '北海道'},
+  {id: 1, name:  '---'},
   {id: 2, name:  '青森県'},
   {id: 3, name: '岩手県'},
   {id: 4, name: '宮城県'},
@@ -48,7 +48,8 @@ self.data = [
   {id: 44, name: '大分県'},
   {id: 45, name: '宮崎県'},
   {id: 46, name: '鹿児島県'},
-  {id: 47, name: '沖縄県'}
+  {id: 47, name: '沖縄県'},
+  {id: 48, name: '北海道'}
   ]
 
 
