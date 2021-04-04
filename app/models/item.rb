@@ -1,27 +1,28 @@
 class Item < ApplicationRecord
-  
+  extends ActiveHash::Association::ActiveRecordExtensions
+
   belongs_to :user,dependent: :destroy
-  
+  belongs_to :category_id
+  belongs_to :status_id
+  belongs_to :fee_id
+  belongs_to :prefecture_id
+  belongs_to :term_id
 
   with_options presence:true do
     validates :name
     validates :description
+    validates :price
+    validates :image
+  end
+
+
+  with_options numericallity: { other_than : 1 }
     validates :category_id
     validates :status_id
-    validates :fee
+    validates :fee_id
     validates :prefecture_id
     validates :term_id
-    validates :price
   end
-  
-end
 
-# | user          | references | null:false,foreign_key: true |
-# | name          | string     | null: false                  |
-# | description   | text       | null: false                  |
-# | category_id   | integer    | null: false                  |
-# | status_id     | integer    | null: false                  |
-# | fee_id        | integer    | null: false                  |
-# | prefecture_id | integer    | null: false                  |
-# | term_id       | integer    | null: false                  |
-# | price         | integer    | null: false                  |
+
+end
