@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  extends ActiveHash::Association::ActiveRecordExtensions
+  extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user,dependent: :destroy
   belongs_to :category_id
@@ -8,8 +8,8 @@ class Item < ApplicationRecord
   belongs_to :prefecture_id
   belongs_to :term_id
 
-  validates :price,presence:true,numericallity:{in:300..9999999},format:{with: /\A[0-9]+\z/}
-
+  validates :price,presence:true,format:{with: /\A[0-9]+\z/},numericality: { other_than: 1 } 
+  
   with_options presence:true do
     validates :name
     validates :description
@@ -18,7 +18,7 @@ class Item < ApplicationRecord
 
   
 
-  with_options numericallity: { other_than : 1 }
+  with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :status_id
     validates :fee_id
