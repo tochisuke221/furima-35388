@@ -1,12 +1,13 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-
+  has_one_attached :image #ここでActiveStorageと画像を結び付けている
+  
   belongs_to :user,dependent: :destroy
-  belongs_to :category_id
-  belongs_to :status_id
-  belongs_to :fee_id
-  belongs_to :prefecture_id
-  belongs_to :term_id
+  belongs_to :category
+  belongs_to :status
+  belongs_to :fee
+  belongs_to :prefecture
+  belongs_to :term
 
   validates :price,presence:true,format:{with: /\A[0-9]+\z/},numericality: { other_than: 1 } 
   

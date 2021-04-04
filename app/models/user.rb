@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   has_many :items
-  has_one_attached :image #ここでActiveStorageと画像を結び付けている
+  
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
