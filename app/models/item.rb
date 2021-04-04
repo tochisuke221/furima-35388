@@ -8,13 +8,15 @@ class Item < ApplicationRecord
   belongs_to :prefecture_id
   belongs_to :term_id
 
+  validates :price,presence:true,numericallity:{in:300..9999999}
+
   with_options presence:true do
     validates :name
     validates :description
-    validates :price
     validates :image
   end
 
+  
 
   with_options numericallity: { other_than : 1 }
     validates :category_id
