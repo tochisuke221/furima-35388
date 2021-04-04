@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture_id
   belongs_to :term_id
 
-  validates :price,presence:true,numericallity:{in:300..9999999}
+  validates :price,presence:true,numericallity:{in:300..9999999},format:{with: /\A[0-9]+\z/}
 
   with_options presence:true do
     validates :name
