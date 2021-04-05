@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one_attached :image # ここでActiveStorageと画像を結び付けている
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   belongs_to :category
   belongs_to :status
   belongs_to :fee
