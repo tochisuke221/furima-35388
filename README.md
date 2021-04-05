@@ -50,7 +50,7 @@ has_one :address
 belongs_to :user
 belongs_to :item
 
-## addresses テーブル
+## orders テーブル
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
