@@ -1,7 +1,7 @@
 const pay=()=>{
 
 
-  Payjp.setPublicKey("pk_test_a53ab8ca177a6c8958589fd8");//環境変数に変えること
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY);
    
 
   const form=document.getElementById("charge-form");
