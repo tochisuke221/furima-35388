@@ -63,6 +63,11 @@ RSpec.describe BuyerOrder, type: :model do
         @buyer_order.valid?
         expect(@buyer_order.errors.full_messages).to include('Address code is invalid')
       end
+      it '郵便番号に数値以外が入力されると保存できない' do
+        @buyer_order.address_code = '12sadfd'
+        @buyer_order.valid?
+        expect(@buyer_order.errors.full_messages).to include('Address code is invalid')
+      end
 
       it '購入者が紐づいていないと保存できない' do
         @buyer_order.user_id = nil

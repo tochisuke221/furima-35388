@@ -5,11 +5,11 @@ class BuyerOrder
 
   # validatesを記載
 
-  validates :address_code, presence: true, format: { with: /\A\d{3}-\d{4}\z/ }
-  validates :prefecture_id, presence: true, numericality: { other_than: 1 }
   with_options presence: true do
     validates :user_id
     validates :item_id
+    validates :prefecture_id, numericality: { other_than: 1 }
+    validates :address_code, format: { with: /\A\d{3}-\d{4}\z/ }
     validates :buyer_id
     validates :city
     validates :address_line
