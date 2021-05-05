@@ -95,6 +95,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not a number')
       end
+      it '購入者が紐づいてないとできない' do
+        @item=FactoryBot.build(:item,user_id: nil)
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
+      end
     end
   end
 end
